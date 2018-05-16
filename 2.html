@@ -1,0 +1,302 @@
+<header>
+    <style>
+        #table1{
+            width: 250px;
+            height: 250px;
+            background-color: black;
+            border-collapse: collapse;
+            border: grey solid;
+            color: red;text-align: center
+        }
+
+        td{
+            height:50px;
+            width:50px; 
+            border: grey solid;
+        }
+    </style>
+</header>
+<body>
+    <center>
+        <h1>Fill the Box with one color</h1>
+            <table id='table1'>
+                <tr>
+                    <td onchange="a()" class = '1' id='1'></td>
+                    <td onchange="a()" class = '2' id='2'></td>
+                    <td onchange="a()" class = '3' id='3'></td>
+                    <td onchange="a()" class = '4' id='4'></td>
+                    <td onchange="a()" class = '5' id='5'></td>
+                </tr>
+                <tr>
+                    <td onchange="a()" class = '6' id='6'></td>
+                    <td onchange="a()" class = '7' id='7'></td>
+                    <td onchange="a()" class = '8' id='8'></td>
+                    <td onchange="a()" class = '9' id='9'></td>
+                    <td onchange="a()" class = '10' id='10'></td>
+                </tr>        
+                <tr>
+                    <td onchange="a()" class = '11' id='11'></td>
+                    <td onchange="a()" class = '12' id='12'></td>
+                    <td onchange="a()" class = '13' id='13'></td>
+                    <td onchange="a()" class = '14' id='14'></td>
+                    <td onchange="a()" class = '15' id='15'></td>
+                </tr>
+                <tr>
+                    <td onchange="a()" class = '16' id='16'></td>
+                    <td onchange="a()" class = '17' id='17'></td>
+                    <td onchange="a()" class = '18' id='18'></td>
+                    <td onchange="a()" class = '19' id='19'></td>
+                    <td onchange="a()" class = '20' id='20'></td>
+                </tr>
+                <tr>
+                    <td onchange="a()" class = '21' id='21'></td>
+                    <td onchange="a()" class = '22' id='22'></td>
+                    <td onchange="a()" class = '23' id='23'></td>
+                    <td onchange="a()" class = '24' id='24'></td>
+                    <td onchange="a()" class = '25' id='25'></td>
+                </tr>
+            </table>
+            <button onclick="start()">Start</button>
+            <br>
+            <button onclick="moveUp()">Up</button>
+            <br>    
+            <button onclick="moveLeft()"><=</button>
+            <button onclick="moveDown()">Down</button>
+            <button onclick="moveRight()">=></button>
+            <P id="p1"></P>
+            <br>
+            <button onclick="reset()">Reset</button>
+            <br>
+            <button onclick="checks()">Reset</button>
+            <a href='http://localhost:3000/'>Return</a>
+    </center>        
+</body>        
+<footer>
+    <script>
+        function reset(){
+            location.reload()
+        }
+        function tick(){
+            console.log(arr)
+        }
+            function checks(){
+                var x = arr[0].color+arr[1].color+arr[2].color+arr[3].color+arr[4].color+arr[5].color+arr[6].color+arr[7].color+arr[8].color+arr[9].color+arr[10].color+arr[11].color+arr[12].color+arr[13].color+arr[14].color+arr[15].color+arr[16].color+arr[17].color+arr[18].color+arr[19].color+arr[20].color+arr[21].color+arr[22].color+arr[23].color+arr[24].color
+                if(x==25 || x==0){
+                    document.getElementById('p1').innerHTML='Congratulations'
+                }
+            }
+        var arr =   [{place:0,status:'start',arrayNumber:0,color:1},
+                    {place:0,status:'',arrayNumber:1,color:0},
+                    {place:0,status:'',arrayNumber:2,color:1},
+                    {place:0,status:'',arrayNumber:3,color:1},
+                    {place:0,status:'',arrayNumber:4,color:1},
+                    
+                    {place:0,status:'',arrayNumber:5,color:1},
+                    {place:0,status:'',arrayNumber:6,color:0},
+                    {place:0,status:'',arrayNumber:7,color:0},
+                    {place:0,status:'',arrayNumber:8,color:1},
+                    {place:0,status:'',arrayNumber:9,color:1},
+                    
+                    {place:0,status:'',arrayNumber:10,color:0},
+                    {place:0,status:'',arrayNumber:11,color:1},
+                    {place:0,status:'',arrayNumber:12,color:1},
+                    {place:0,status:'',arrayNumber:13,color:0},
+                    {place:0,status:'',arrayNumber:14,color:1},
+                    
+                    {place:0,status:'',arrayNumber:15,color:1},
+                    {place:0,status:'',arrayNumber:16,color:1},
+                    {place:0,status:'',arrayNumber:17,color:0},
+                    {place:0,status:'',arrayNumber:18,color:1},
+                    {place:0,status:'',arrayNumber:19,color:0},
+                    
+                    {place:0,status:'',arrayNumber:20,color:0},
+                    {place:0,status:'',arrayNumber:21,color:0},
+                    {place:0,status:'',arrayNumber:22,color:1},
+                    {place:0,status:'',arrayNumber:23,color:1},
+                    {place:0,status:'',arrayNumber:24,color:0},]      
+            function start(){  
+                for(i=0;i<25;i++){
+                    if(arr[i].status=='start'){
+                        arr[i].place=arr[i].place+1
+                        arr[i].color=arr[i].color-1
+                        document.getElementById(arr[i].arrayNumber+1).style.backgroundColor = 'white',
+                        document.getElementById(arr[i].arrayNumber+1).innerHTML='I'
+                    }
+                    if(arr[i].color==0){
+                        document.getElementById(arr[i].arrayNumber+1).style.backgroundColor = 'white'
+                    }
+                    if(arr[i].color==1){
+                        document.getElementById(arr[i].arrayNumber+1).style.backgroundColor = 'black'
+                        
+                    }
+                }
+            }
+            function moveRight(){
+                var x = arr
+                function target(x){
+                if(x.place>0){
+                    if(x.arrayNumber==x.arrayNumber+1){return true}
+                    else{return true}
+                }
+                else{return false}
+            }
+            var arrLocation = arr.filter(target)
+            console.log(arrLocation)
+            if(arr[arrLocation[0].arrayNumber].place==1){
+                function targetDestination(y){
+                    if(y.place==arrLocation[0].place){return true}
+                    if(y.arrayNumber==arrLocation[0].arrayNumber+1){return true}
+                    else{return false}
+                }
+                var absolute = arr.filter(targetDestination)
+                console.log(absolute)
+                for(i=0;i<1;i++){
+                    arr[absolute[0].arrayNumber].place=arr[absolute[0].arrayNumber].place-1,
+                    arr[absolute[1].arrayNumber].place=arr[absolute[1].arrayNumber].place+1,
+                    document.getElementById(arr[absolute[0].arrayNumber].arrayNumber+1).innerHTML='',
+                    document.getElementById(arr[absolute[1].arrayNumber].arrayNumber+1).innerHTML='I'
+                    if(arr[absolute[1].arrayNumber].color==1){
+                        arr[absolute[1].arrayNumber].color=arr[absolute[1].arrayNumber].color-1
+                        document.getElementById(arr[absolute[1].arrayNumber].arrayNumber+1).style.backgroundColor='white'
+                        
+                    }
+                    else if((arr[absolute[1].arrayNumber].color==0)){
+                        arr[absolute[1].arrayNumber].color=arr[absolute[1].arrayNumber].color+1
+                        document.getElementById(arr[absolute[1].arrayNumber].arrayNumber+1).style.backgroundColor='black'     
+                    }
+                }
+            }
+            function check(){
+                var x = arr[0].color+arr[1].color+arr[2].color+arr[3].color+arr[4].color+arr[5].color+arr[6].color+arr[7].color+arr[8].color+arr[9].color+arr[10].color+arr[11].color+arr[12].color+arr[13].color+arr[14].color+arr[15].color+arr[16].color+arr[17].color+arr[18].color+arr[19].color+arr[20].color+arr[21].color+arr[22].color+arr[23].color+arr[24].color
+                if(x==25 || x==0){
+                    document.getElementById('p1').innerHTML='Congratulations'
+                }
+            }
+        }   
+            function moveDown(){
+                var x = arr
+                function target(x){
+                if(x.place>0 && x.arrayNumber<20){
+                    return true
+                }
+                else{return false}
+            }
+            var arrLocation = arr.filter(target)
+            console.log(arrLocation,x[arrLocation.arrayNumber+5])
+            if(arr[arrLocation[0].arrayNumber].place==1){
+                function targetDestination(y){
+                    if(y.place==arrLocation[0].place){return true}
+                    if(y.arrayNumber==arrLocation[0].arrayNumber+5){return true}
+                    else{return false}
+                }
+                var absolute = arr.filter(targetDestination)
+                for(i=0;i<1;i++){
+                    arr[absolute[0].arrayNumber].place=arr[absolute[0].arrayNumber].place-1,
+                    arr[absolute[1].arrayNumber].place=arr[absolute[1].arrayNumber].place+1,
+                    console.log('2.'+arr[absolute[0].arrayNumber].place)
+                    document.getElementById(arr[absolute[0].arrayNumber].arrayNumber+1).innerHTML='',
+                    document.getElementById(arr[absolute[1].arrayNumber].arrayNumber+1).innerHTML='I'
+                    if(arr[absolute[1].arrayNumber].color==1){
+                        arr[absolute[1].arrayNumber].color=arr[absolute[1].arrayNumber].color-1
+                        document.getElementById(arr[absolute[1].arrayNumber].arrayNumber+1).style.backgroundColor='white'
+                        
+                    }
+                    else if((arr[absolute[1].arrayNumber].color==0)){
+                        arr[absolute[1].arrayNumber].color=arr[absolute[1].arrayNumber].color+1
+                        document.getElementById(arr[absolute[1].arrayNumber].arrayNumber+1).style.backgroundColor='black'     
+                    }
+                }
+            }
+            function check(){
+                var x = arr[0].color+arr[1].color+arr[2].color+arr[3].color+arr[4].color+arr[5].color+arr[6].color+arr[7].color+arr[8].color+arr[9].color+arr[10].color+arr[11].color+arr[12].color+arr[13].color+arr[14].color+arr[15].color+arr[16].color+arr[17].color+arr[18].color+arr[19].color+arr[20].color+arr[21].color+arr[22].color+arr[23].color+arr[24].color
+                if(x==25 || x==0){
+                    document.getElementById('p1').innerHTML='Congratulations'
+                }
+            }
+        }
+            function moveLeft(){
+                var x = arr
+                function target(x){
+                if(x.place>0){
+                    if(x.arrayNumber==x.arrayNumber+1){return true}
+                    else{return true}
+                }
+                else{return false}
+            }
+            var arrLocation = arr.filter(target)
+            console.log(arrLocation)
+            if(arr[arrLocation[0].arrayNumber].place==1){
+                function targetDestination(y){
+                    if(y.place==arrLocation[0].place){return true}
+                    if(y.arrayNumber==arrLocation[0].arrayNumber-1){return true}
+                    else{return false}
+                }
+                var absolute = arr.filter(targetDestination)
+                console.log(absolute)
+                for(i=0;i<1;i++){
+                    arr[absolute[0].arrayNumber].place=arr[absolute[0].arrayNumber].place+1,
+                    arr[absolute[1].arrayNumber].place=arr[absolute[1].arrayNumber].place-1
+                    document.getElementById(arr[absolute[1].arrayNumber].arrayNumber+1).innerHTML='',
+                    document.getElementById(arr[absolute[0].arrayNumber].arrayNumber+1).innerHTML='I'
+                    if(arr[absolute[0].arrayNumber].color==1){
+                        arr[absolute[0].arrayNumber].color=arr[absolute[0].arrayNumber].color-1
+                        document.getElementById(arr[absolute[0].arrayNumber].arrayNumber+1).style.backgroundColor='white'    
+                    }
+                    else if((arr[absolute[0].arrayNumber].color==0)){
+                        arr[absolute[0].arrayNumber].color=arr[absolute[0].arrayNumber].color+1
+                        document.getElementById(arr[absolute[0].arrayNumber].arrayNumber+1).style.backgroundColor='black'     
+                    }
+                }
+            }
+            function check(){
+                var x = arr[0].color+arr[1].color+arr[2].color+arr[3].color+arr[4].color+arr[5].color+arr[6].color+arr[7].color+arr[8].color+arr[9].color+arr[10].color+arr[11].color+arr[12].color+arr[13].color+arr[14].color+arr[15].color+arr[16].color+arr[17].color+arr[18].color+arr[19].color+arr[20].color+arr[21].color+arr[22].color+arr[23].color+arr[24].color
+                if(x==25 || x==0){
+                    document.getElementById('p1').innerHTML='Congratulations'
+                }
+            }
+        }
+            function moveUp(){
+                var x = arr
+                function target(x){
+                if(x.place==1 && x.arrayNumber>4){
+                    if(x.arrayNumber==x.arrayNumber+1){return true}
+                    else{return true}
+                }
+                else{return false}
+            }
+            var arrLocation = arr.filter(target)
+            console.log(arrLocation)
+            if(arr[arrLocation[0].arrayNumber].place==1){
+                function targetDestination(y){
+                    if(y.place==arrLocation[0].place){return true}
+                    if(y.arrayNumber==arrLocation[0].arrayNumber-5){return true}
+                    else{return false}
+                }
+                var absolute = arr.filter(targetDestination)
+                console.log(absolute)
+                for(i=0;i<1;i++){
+                    arr[absolute[0].arrayNumber].place=arr[absolute[0].arrayNumber].place+1,
+                    arr[absolute[1].arrayNumber].place=arr[absolute[1].arrayNumber].place-1,
+                    console.log('color = '+arr[absolute[1].arrayNumber].color)
+                    document.getElementById(arr[absolute[1].arrayNumber].arrayNumber+1).innerHTML='',
+                    document.getElementById(arr[absolute[0].arrayNumber].arrayNumber+1).innerHTML='I'
+                    if(arr[absolute[0].arrayNumber].color==1){
+                        arr[absolute[0].arrayNumber].color=arr[absolute[0].arrayNumber].color-1
+                        document.getElementById(arr[absolute[0].arrayNumber].arrayNumber+1).style.backgroundColor='white'
+                    }
+                    else if((arr[absolute[0].arrayNumber].color==0)){
+                        arr[absolute[0].arrayNumber].color=arr[absolute[0].arrayNumber].color+1
+                        document.getElementById(arr[absolute[0].arrayNumber].arrayNumber+1).style.backgroundColor='black'     
+                    }
+                }
+            }
+            function check(){
+                var x = arr[0].color+arr[1].color+arr[2].color+arr[3].color+arr[4].color+arr[5].color+arr[6].color+arr[7].color+arr[8].color+arr[9].color+arr[10].color+arr[11].color+arr[12].color+arr[13].color+arr[14].color+arr[15].color+arr[16].color+arr[17].color+arr[18].color+arr[19].color+arr[20].color+arr[21].color+arr[22].color+arr[23].color+arr[24].color
+                if(x==25 || x==0){
+                    document.getElementById('p1').innerHTML='Congratulations'
+                    console.log('yay')
+                }
+            }
+        }
+    </script>
+</footer>
